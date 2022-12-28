@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-header">
+    <h4>Attribute Binding</h4>
+  </div>
+  <div class="card-body">
+    <input #slider (change)="0" [value]="value" [min]="min" [max]="max" type="range" aria-valuenow="300">
+  </div>
+  <h5 ngClass="slider.value > 250 ? text-success : text-danger">{{ slider.value }}</h5>
+</div>
+
+<div class="row mt-3 justify-content-end">
+  <div class="col-9">
+    <input #inp type="text" class="form-control">
+  </div>
+  <div class="col">
+    <button class="btn btn-primary me-3" (click)="onDisplay(inp.value)">Play</button>
+  </div>
+  <div class="mt-3" *ngFor="let item of result">
+    <p [class.text-primary]="item % 2 == 0" [class.text-success]="item % 2 != 0">{{ item }}</p>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col">
+    <button class="btn btn-primary me-3" (click)="onPlay()">Play</button>
+    <button class="btn btn-danger">Stop</button>
+  </div>
+</div>

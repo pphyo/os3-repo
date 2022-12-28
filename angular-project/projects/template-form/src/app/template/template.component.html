@@ -1,0 +1,72 @@
+<div class="container mt-4">
+  <h3>Template Driven Form</h3>
+  <div class="row">
+
+    <div class="col-5">
+      <div class="card">
+        <div class="card-header">
+          Student Form
+        </div>
+        <div class="card-body">
+          <form #form="ngForm" (ngSubmit)="onSave(form)">
+            <label for="name" class="form-label">Name</label>
+            <div class="input-group mb-2">
+              <span class="input-group-text"><i class="bi bi-person"></i></span>
+              <input name="name" ngModel #name="ngModel" type="text" id="name" class="form-control" required
+                placeholder="Enter name">
+              <span class="input-group-text">
+                <i
+                  [ngClass]="(!name.valid && !name.dirty) || (!name.valid && (name.touched || name.dirty)) ? 'bi bi-x text-danger' : 'bi bi-check text-success'"></i>
+              </span>
+            </div>
+
+            <label for="age" class="form-label">Age</label>
+            <div class="input-group mb-2">
+              <span class="input-group-text"><i class="bi bi-calendar2-day"></i></span>
+              <input name="age" ngModel #age="ngModel" type="number" min="10" id="age" class="form-control">
+              <span class="input-group-text"><i class="bi bi-x"></i></span>
+            </div>
+
+            <label for="email" class="form-label">Email</label>
+            <div class="input-group mb-2">
+              <span class="input-group-text"><i class="bi bi-envelope-at"></i></span>
+              <input name="email" ngModel #email="ngModel" type="email" id="email" class="form-control" required
+                placeholder="Enter email">
+              <span class="input-group-text">
+                <i
+                  [ngClass]="(!email.valid && !email.dirty) || (!email.valid && (email.touched || email.dirty)) ? 'bi bi-x text-danger' : 'bi bi-check text-success'"></i>
+              </span>
+            </div>
+
+            <div class="text-center">
+              <button [disabled]="form.status != 'VALID'" type="submit" class="btn btn-primary w-25">
+                <i class="bi bi-save"></i> Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="alert alert-info" *ngIf="!list.length">
+        <i class="bi bi-exclamation-triangle"></i> No Data. Please create new.
+      </div>
+      <table class="table table-striped" *ngIf="list.length">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of list">
+            <td>{{ item.name }}</td>
+            <td>{{ item.age }}</td>
+            <td>{{ item.email }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

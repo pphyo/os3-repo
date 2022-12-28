@@ -1,0 +1,35 @@
+<div class="row mt-4">
+  <div class="col-4">
+    <ul class="list-group" *ngFor="let item of students">
+      <li (click)="onSelect(item)" class="list-group-item list-group-item-action">{{ item.name }}</li>
+    </ul>
+  </div>
+
+  <table class="col table table-striped">
+    <tbody>
+      <tr>
+        <td>Name</td>
+        <td>{{ student?.name }}</td>
+      </tr>
+      <tr>
+        <td>Age</td>
+        <td>{{ student?.age }}</td>
+      </tr>
+      <tr>
+        <td>Hobby</td>
+        <td>{{ student?.hobby }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="row mt-3">
+  <img src="{{ url }}" alt="">
+</div>
+
+<div class="row mt-3">
+  <form>
+    <input type="text" (keyup)="0" #name class="form-control">
+  </form>
+  <label class="form-label">{{ name.value }}</label>
+</div>

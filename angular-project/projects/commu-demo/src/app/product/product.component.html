@@ -1,1 +1,46 @@
-<p>product works!</p>
+<div class="row mb-3">
+  <div class="col">
+    <div class="card">
+      <div class="card-header">
+        <h5>Product Form</h5>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="form">
+          <div class="row align-items-end">
+            <div class="col">
+              <label for="name" class="form-label">Product Name</label>
+              <input type="text" formControlName="name" id="name" class="form-control" placeholder="Enter product name">
+            </div>
+            <div class="col">
+              <label for="price" class="form-label">Price</label>
+              <input type="text" formControlName="price" id="price" class="form-control" placeholder="Enter price">
+            </div>
+            <div class="col">
+              <label for="description" class="form-label">Descriptin</label>
+              <input type="text" formControlName="description" id="description" class="form-control"
+                placeholder="Enter description">
+            </div>
+            <div class="col">
+              <label for="image" class="form-label">Image</label>
+              <input type="text" formControlName="image" id="image" class="form-control" placeholder="Enter image url">
+            </div>
+            <div class="col-auto">
+              <button class="btn btn-outline-primary" [disabled]="form.invalid" (click)="onAdd()">Add Product</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>{{ date | date: 'yyyy-MM-dd' }}</p>
+
+<div class="row">
+  <div class="col-4">
+    <app-product-list [productList]="list" (selectedProduct)="onSelectProduct($event)"></app-product-list>
+  </div>
+  <div class="col">
+    <app-product-detail [detail]="product"></app-product-detail>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-header">
+    <h5>Product Detail</h5>
+  </div>
+  <div class="card-body">
+    <div class="row px-2">
+      <div class="col-5">
+        <img [src]="productDetail?.image" class="img-thumbnail">
+      </div>
+      <div class="col">
+        <p>Name: {{ productDetail?.name }}</p>
+        <p>Price: {{ productDetail?.price }} </p>
+        <p>Description: {{ productDetail?.description ? productDetail?.description : '#NA' }}</p>
+      </div>
+    </div>
+  </div>
+</div>

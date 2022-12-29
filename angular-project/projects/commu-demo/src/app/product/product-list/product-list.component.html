@@ -1,1 +1,15 @@
-<p>product-list works!</p>
+<div class="card">
+  <div class="card-header">
+    <h5>Product List</h5>
+  </div>
+  <div class="card-body">
+    <!-- <div class="alert alert-info" *ngIf="!productList">
+      There is no product.
+    </div> -->
+    <ul class="list-group" *ngFor="let item of productList; index as i">
+      <li class="list-group-item list-group-item-action" [class.active]="item.name == name" (click)="onSelect(i)">{{
+        item.name }}
+      </li>
+    </ul>
+  </div>
+</div>

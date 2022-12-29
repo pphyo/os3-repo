@@ -1,1 +1,27 @@
-<p>parent works!</p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h5>Parent Component</h5>
+        </div>
+        <div class="card-body d-flex">
+          <div>
+            <label for="data" class="form-label">Some Data</label>
+            <input #data type="text" id="data" class="form-control">
+          </div>
+          <div class="align-self-end">
+            <button class="ms-3 btn btn-primary" (click)="onDisplay(data.value)">Show Data</button>
+          </div>
+        </div>
+        <div class="card-footer">
+          <p>{{ inData }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <app-child [dataInChild]="parentData" (outData)="setData($event)"></app-child>
+    </div>
+  </div>
+</div>

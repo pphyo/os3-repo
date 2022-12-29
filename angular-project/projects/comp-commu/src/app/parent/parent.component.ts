@@ -8,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class ParentComponent {
 
+  parentData:any
+
+  inData:any
+
+  onDisplay(data:any) {
+    this.parentData = data
+  }
+
+  setData(event:any) {
+    this.inData = event
+  }
+
 }

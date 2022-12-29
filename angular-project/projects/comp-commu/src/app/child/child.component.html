@@ -1,1 +1,16 @@
-<p>child works!</p>
+<div class="card">
+  <div class="card-header">
+    <h5>Child Component</h5>
+  </div>
+  <div class="card-body">
+    <p>{{ childData }}</p>
+    <hr>
+    <div>
+      <label for="data" class="form-label">Child Data</label>
+      <input #data type="text" id="data" class="form-control">
+    </div>
+    <div class="align-self-end">
+      <button class="ms-3 btn btn-primary" (click)="transfer(data.value)">Show Data</button>
+    </div>
+  </div>
+</div>

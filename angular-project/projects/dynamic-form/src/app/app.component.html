@@ -1,0 +1,62 @@
+<div class="container mt-4">
+
+  <div class="row">
+    <div class="col-5">
+
+      <div class="card">
+        <div class="card-header">
+          <h5>Dynamic Form</h5>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="form">
+
+            <!-- name -->
+            <label for="name" class="form-label">Name</label>
+            <div class="input-group mb-2">
+              <span class="input-group-text"><i class="bi bi-person"></i></span>
+              <input type="text" formControlName="name" id="name" class="form-control" placeholder="Enter name">
+            </div>
+
+            <!-- email -->
+            <label for="email" class="form-label">Email</label>
+            <div class="input-group mb-2">
+              <span class="input-group-text"><i class="bi bi-envelope-at"></i></span>
+              <input type="email" formControlName="email" id="email" class="form-control" placeholder="Enter email">
+            </div>
+
+            <label class="form-label">Phones</label>
+            <div formArrayName="phones">
+              <div class="row mb-3" *ngFor="let item of phones.controls; let i = index">
+                <div class="col">
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                    <input type="tel" [formControlName]="i" class="form-control" placeholder="Enter phone no">
+                  </div>
+                </div>
+                <div class="col-auto d-flex">
+                  <button class="btn btn-outline-primary me-3" (click)="addPhone()"><i class="bi bi-plus"></i></button>
+                  <button class="btn btn-outline-danger" (click)="removePhone(i)"><i class="bi bi-x"></i></button>
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h5>Form Result</h5>
+        </div>
+        <div class="card-body">
+          <pre>{{ form.value | json }}</pre>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

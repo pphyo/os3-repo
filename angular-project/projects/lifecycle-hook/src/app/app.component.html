@@ -1,0 +1,10 @@
+<div class="container mt-4">
+  <label class="form-label">Name</label>
+  <input #val type="text" class="form-control mb-3">
+
+  <label class="form-label">Type</label>
+  <input type="text" class="form-control">
+  <button class="btn btn-primary" (click)="onAdd(val.value)">Add Cockpit</button>
+</div>
+
+<app-cockpit [data]="cockpit"></app-cockpit>

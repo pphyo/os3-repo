@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a [routerLink]="['/one']" class="navbar-brand">Angular Routing</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#route">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="route">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a [routerLink]="['/one']" routerLinkActive="active" class="nav-link">One</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/two']" routerLinkActive="active" class="nav-link">Two</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a [routerLinkActive]="['active']" class="nav-link dropdown-toggle" role="button"
+            data-bs-toggle="dropdown">Three</a>
+          <ul class="dropdown-menu">
+            <li><a [routerLink]="['/three', 'one']" class="dropdown-item">One Of Three</a>
+            </li>
+            <li><a [routerLink]="['/three', 'two']" class="dropdown-item">Two Of Three</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <router-outlet></router-outlet>
+</div>
